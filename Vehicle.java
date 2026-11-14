@@ -1,49 +1,47 @@
-public class Vehicle {
-
+public abstract class Vehicle {
     private String brand;
     private String model;
     private int year;
 
-    Vehicle(String brand, String model, int year) {
+
+    public Vehicle(String brand, String model, int year){
         this.brand = brand;
         this.model = model;
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-        } else {
-            this.year = 2026;
-        }
+        this.year = (year >= 1886 && year <= 2026) ? year : 2026;
     }
 
-    public String getBrand() {
-        return brand;
+    public int getYear(){
+        return this.year;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public boolean setYear(int year) {
-        if (year >= 1886 && year <= 2026) {
+    public boolean setYear(int year){
+        if(year >= 1886 && year <=2026){
+            System.out.println("Year is:" + year + "\n");
             this.year = year;
             return true;
         }
-
-        return false;
+        else {
+            System.out.println("Year Remains:" + this.year + "\n");
+            return false;
+        }
     }
 
-    void displayInfo() {
-        System.out.println(brand + " , " + model + " , " + year);
+    public abstract void moveForward();
+    public abstract void moveBackward();
+    public abstract void moveLeft();
+    public abstract void moveRight();
+
+    public void displayInfo(){
+        System.out.println(brand + "" + model + "" + getYear());
     }
 
-    int calculateAge() {
-        return 2026 - year;
+    public int calculateAge(){
+        return 2026 - getYear();
     }
 
-    boolean isVintage() {
+    public boolean isVintage(){
         return calculateAge() > 25;
     }
 }
+
+    
