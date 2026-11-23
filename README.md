@@ -1,40 +1,35 @@
-Laboratory Activity: Java Interfaces
+Java Packages - Vehicle Project
 
-Author: Maimar
-Email: marimarmarinas14@gmail.com
+Description
 
-Project Description
+This project demonstrates how to organize Java classes and interfaces using packages. It separates vehicle classes, interfaces, devices, and the main application into different packages.
 
-This project demonstrates the use of Object-Oriented Programming (OOP) concepts in Java, particularly Interfaces and Polymorphism.
+Project Structure
 
-It uses different vehicle classes and a printer class to demonstrate how a single interface can be implemented by different classes.
+src/
+├── vehicles/
+│   ├── Vehicle.java
+│   ├── Car.java
+│   ├── Motorcycle.java
+│   └── Truck.java
+├── contracts/
+│   └── Serviceable.java
+├── devices/
+│   └── Printer.java
+└── app/
+    └── Main.java
 
-OOP Concepts Applied
+Packages
 
-Class and Object – Used to create objects from different Java classes.
+vehicles – Contains Vehicle, Car, Motorcycle, and Truck.
+contracts – Contains the Serviceable interface.
+devices – Contains the Printer class.
+app – Contains the Main class.
 
-Constructor – Initializes object attributes.
+Concepts Used
 
-Encapsulation – Protects data using private fields.
-
-Inheritance – Car, Motorcycle, and Truck extend the Vehicle class.
-
-Polymorphism – Allows parent class and interface references to hold different object types.
-
-Interface – Defines a common service method implemented by different classes.
-
-Interface Implementation
-
-The Serviceable interface contains the service() method.
-
-The following classes implement this interface:
-
-Car
-
-Motorcycle
-
-Truck
-
-Printer
-
-The program demonstrates interface polymorphism by using a Serviceable array to store different objects and execute their respective service methods.
+Java Packages
+Inheritance
+Polymorphism
+Abstraction
+Interfaces
