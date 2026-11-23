@@ -1,12 +1,18 @@
+
 public class Main {
- 
+
     public static void printDetails(Vehicle vehicle) {
         vehicle.displayInfo();
     }
 
+    
+    public static void performService(Serviceable item) {
+        item.service();
+    }
+
     public static void main(String[] args) {
 
-        // 1. A parent reference holding a child object
+        
         System.out.println("=== 1. Parent Reference ===");
         Vehicle vehicle = new Car("BMW", "X1 SUV", 2022, 4);
         vehicle.displayInfo();
@@ -17,7 +23,7 @@ public class Main {
 
         System.out.println();
 
-        // 1.1 The same variable now refers to a Truck object
+        
         Vehicle truck = new Truck("Volvo", "FH16", 2025, 10);
         printDetails(truck);
         truck.moveForward();
@@ -27,7 +33,7 @@ public class Main {
 
         System.out.println();
 
-        // 1.2 The same variable now refers to a Motorcycle object
+        
         Vehicle motorcycle = new Motorcycle("Honda", "Click 125i", 2024, "Gasoline");
         printDetails(motorcycle);
         motorcycle.moveForward();
@@ -37,18 +43,19 @@ public class Main {
 
         System.out.println();
 
-        // 2. One method accepts different Vehicle subclasses
-        System.out.println("\n=== 2. Method Parameter ===");
+       
+        System.out.println("=== 2. Method Parameter ===");
         Car car = new Car("Mitsubishi", "Mirage G4", 2023, 4);
         printDetails(car);
         car.moveForward();
         car.moveBackward();
         car.moveLeft();
         car.moveRight();
+
         System.out.println();
 
-        // 3. One array holds different Vehicle subclasses
-        System.out.println("\n=== 3. Polymorphic Array ===");
+        
+        System.out.println("=== 3. Polymorphic Array ===");
 
         Vehicle[] vehicles = {
             new Car("Mitsubishi", "Mirage G4", 2023, 4),
@@ -63,6 +70,20 @@ public class Main {
             currentVehicle.moveLeft();
             currentVehicle.moveRight();
             System.out.println();
+        }
+
+        
+        System.out.println("=== 4. Interface Polymorphism ===");
+
+        Serviceable[] serviceItems = {
+            new Car("BMW", "X1 SUV", 2022, 4),
+            new Motorcycle("Honda", "Click 125i", 2024, "Gasoline"),
+            new Truck("Volvo", "FH16", 2025, 10),
+            new Printer()
+        };
+
+        for (Serviceable item : serviceItems) {
+            performService(item);
         }
     }
 }
